@@ -14,6 +14,6 @@ public class TestController {
 
     @GetMapping("/test/greeting")
     public String getGreeting(@RequestParam String name) {
-        return "Hello, " + name + "!";
+        return String.format("Hello, %s!", name);
     }
 }
