@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
+    private static String sayHello = "Hello, %s!";
 
     @GetMapping("/test/hello")
     public String getHello() {
@@ -15,11 +16,11 @@ public class TestController {
 
     @GetMapping("/test/greeting")
     public String getGreetingQueryString(@RequestParam String name) {
-        return String.format("Hello, %s!", name);
+        return String.format(sayHello, name);
     }
 
     @GetMapping("/test/greeting/{name}")
     public String getGreetingPathVariable(@PathVariable String name) {
-        return String.format("Hello, %s!", name);
+        return String.format(sayHello, name);
     }
 }
